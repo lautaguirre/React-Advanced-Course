@@ -1,7 +1,7 @@
 import React from 'react';
 import ReacDOM from 'react-dom';
 
-import Root from 'root';
+import Root from 'Root';
 import App from 'components/App';
 
 ReacDOM.render((
