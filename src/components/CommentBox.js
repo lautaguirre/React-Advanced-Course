@@ -38,4 +38,4 @@ class CommentBox extends Component {
   }
 }
 
-export default requireAuth(connect(null, actions)(CommentBox));
+export default connect(null, actions)(requireAuth(CommentBox));
