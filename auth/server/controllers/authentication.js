@@ -30,3 +30,7 @@ exports.signup = async (req, res, next) => {
     return res.status(400).send({ error: 'Error' });
   }
 };
+
+exports.signin = (req, res, next) => {
+  res.send({ token: tokenForUser(req.user) });
+};
