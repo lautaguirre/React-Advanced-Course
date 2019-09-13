@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
+import { bindActionCreators, compose } from 'redux';
+
+import * as actions from '../../actions/index';
 
 class Signup extends Component {
   onSubmit = (form) => {
-    console.log(form);
+    this.props.auth.signup(form)
   }
 
   render() {
@@ -33,8 +37,13 @@ class Signup extends Component {
   }
 }
 
-Signup = reduxForm({
-  form: 'signup'
-})(Signup);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    auth: bindActionCreators(actions, dispatch),
+  }
+};
 
-export default Signup;
+export default compose(
+  connect(null, mapDispatchToProps),
+  reduxForm({ form: 'signup' })
+)(Signup);
