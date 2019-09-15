@@ -7,7 +7,9 @@ import * as actions from '../../actions/index';
 
 class Signup extends Component {
   onSubmit = (form) => {
-    this.props.auth.signup(form)
+    this.props.auth.signup(form, () => {
+      this.props.history.push('/feature');
+    });
   }
 
   render() {
